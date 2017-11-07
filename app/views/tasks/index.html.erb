@@ -1,0 +1,29 @@
+<h1>To Do List</h1>
+<p>Current Tasks:</p>
+<div class="task-container">
+  <ul>
+  <% @tasks.each do |task| %>
+  <div class="task">
+    <li>
+    <% if task.completed %>
+     <i class="fa fa-check-square-o" aria-hidden="true"></i>
+    <% else %>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    <% end %>
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to edit_task_path(task), {} do%>
+        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to task_path(task),
+        method: :delete,
+        data: { confirm: "Are you sure?" } do%>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+       <% end %>
+    </li>
+  </div>
+  <% end %>
+  </ul>
+</div>
+<div class="add-new">
+  <%= link_to "Add a task", new_task_path %>
+</div>

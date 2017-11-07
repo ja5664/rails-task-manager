@@ -1,0 +1,15 @@
+<h1>Task Details:</h1>
+<div class="task-container">
+  <p><strong><%= @task.title %></strong></p>
+  <p><em><%= @task.details %></em></p>
+  <% if @task.completed %>
+    <i class="fa fa-address-book"></i>
+  <% else %>
+    <i class="fa fa-address-book"></i>
+  <% end %>
+<!--   <p>Status: <%= @task.completed %></p> -->
+</div>
+<div class="go-back">
+  <%= link_to "Back to task list", tasks_path %>
+</div>
+    <i class="fa fa-address-book"></i>
